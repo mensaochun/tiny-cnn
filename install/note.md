@@ -2,6 +2,8 @@
 
 最近在看caffe源码，看得有点吃力，可能还是因为c++的基础不够。上知乎的时候发现有一个轻量级别的cnn框架，称为tiny-cnn，不过经过多个版本的更迭，现在已经取名为tiny-dnn，增加了包括RNN在内的多种神经网络。这个框架也是用c++写的，依赖很少，号称只要引用头文件就可使用的框架。于是我打算开始阅读这个开源代码，一方面帮助自己熟悉cnn算法的实现，另外一方面也可以提高c++的水平。
 
+## 一、在vs中配置
+
 ### 下载源码
 
 首先，到github上下载源码，我是打算从最初的版本看起，所以下载了最开始的版本。下载地址：https://github.com/tiny-dnn/tiny-dnn
@@ -32,7 +34,22 @@
 
 
 
+## 二、在linux中配置
 
+使用clion IDE
+
+将tiny-cnn文件夹加入到clion的工程目录下，然后在CMakeLists.txt中将这个文件夹include进来就好，因为没有任何的源文件，所以可以这么做。
+
+~~~cmake
+cmake_minimum_required(VERSION 3.8)
+project(tiny_cnn)
+set(CMAKE_CXX_STANDARD 11)
+include_directories(/home/mensaochun/CLionProjects/tiny-cnn)
+set(SOURCE_FILES main.cpp)
+add_executable(tiny_cnn ${SOURCE_FILES})
+~~~
+
+然后建立一个main.cpp 文件，将example下的mnist train.cpp文件中的内容copy到这里，稍作修改，就可以运行了！
 
 
 
